@@ -1,30 +1,18 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + PWA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tornando um VITE em um PWA:
 
-Currently, two official plugins are available:
+1 - Instale vite-plugin-pwa;
+2 - Adicionar o plugin ao vite.config.ts;
+3 - Criar o maninfest no vite.config.ts;
+4 - Assets baixaveis precisam estar na pasta public!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O plugin vite-plugin-pwa irá:
 
-## Expanding the ESLint configuration
+- gerar o Manifesto da Aplicação Web: usando a opção de plugin manifest
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- configurar o Manifesto do aplicativo Web no ponto de entrada do aplicativo: adicionando um link no cabeçalho do ponto de entrada
 
-- Configure the top-level `parserOptions` property like this:
+- gerar o trabalhador de serviço: usando a opção de plug-in de estratégias (para obter mais informações, leia a secção Estratégias do trabalhador de serviço)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- gerar o script para registar o service worker no browser: utilizando a opção de plug-in injectRegister (para mais informações, leia a secção Registar Service Worker)` list
